@@ -28,7 +28,7 @@ namespace WebApplication1
             con.Open();
             if(con.State==System.Data.ConnectionState.Open)
             {
-                Response.Write(con.State.ToString());
+                Response.Write(con.State.ToString());  // show this state on the webpage
                 string operation = "insert into infor(id,name) values(@id,@name)";
                 //operation = "delete from infor where id=@id";
                 //operation = "update infor set name=@name,email=@email where id=@id";
