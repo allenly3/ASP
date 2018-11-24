@@ -11,7 +11,7 @@ namespace WebApplication1
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        int i = 1;
+        int i;
         string link = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database2.mdf;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
