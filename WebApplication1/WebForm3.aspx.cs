@@ -76,9 +76,7 @@ namespace WebApplication1
                 Response.Write(ex.ToString());
             }
 
-
             con.Close();
-
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -88,7 +86,6 @@ namespace WebApplication1
             {
                 con.Open();
             }
-
             string showing = "select * from infor";
             SqlCommand cmd = new SqlCommand(showing, con);
             //cmd.CommandText = showing;
@@ -101,6 +98,65 @@ namespace WebApplication1
             GridView1.DataBind();
 
             con.Close();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(link);
+            if(con.State==ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            string operation = "update infor set lname=@lname,phone=@phone,email=@email where fname=@fname;";
+            string fname = TextBox1.Text.ToString();
+            string lname = TextBox2.Text.ToString();
+            string email = TextBox3.Text.ToString();
+            string phone = TextBox4.Text.ToString();
+
+            SqlCommand cmd = new SqlCommand(operation, con);
+
+            try
+            {
+
+               
+                cmd.Parameters.AddWithValue("@fname", fname);
+                cmd.Parameters.AddWithValue("@lname", lname);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@phone", phone);
+
+                cmd.ExecuteNonQuery();
+                Response.Write("successful");
+ 
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+
+            con.Close();
+
+
+
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(link);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            string operation = "delete from infor where fname=@fname;";
+            string fname = TextBox1.Text.ToString();
+
+            SqlCommand cmd = new SqlCommand(operation, con);
+            cmd.Parameters.AddWithValue("@fname", fname);
+            cmd.ExecuteNonQuery();
+            Response.Write("successful");
+
+            con.Close();
+
+            
         }
     }
 }

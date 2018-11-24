@@ -38,6 +38,13 @@
             height: 101px;
             width: 347px;
         }
+        .auto-style10 {
+            height: 39px;
+            width: 347px;
+        }
+        .auto-style11 {
+            height: 39px;
+        }
     </style>
 </head>
 <body style="height: 148px">
@@ -48,7 +55,7 @@
                 <td>
                     <asp:TextBox ID="TextBox1" runat="server" Width="271px"></asp:TextBox>
                 </td>
-                <td rowspan="13">
+                <td rowspan="14">
                     &nbsp;</td>
             </tr>
             <tr>
@@ -119,6 +126,14 @@
                 </td>
                 <td>
                     <asp:Button ID="Button2" runat="server" Height="28px" Text="Display" Width="75px" OnClick="Button2_Click" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style10">
+                    <asp:Button ID="Button3" runat="server" Height="27px" OnClick="Button3_Click" Text="Update" Width="82px" />
+                </td>
+                <td class="auto-style11">
+                    <asp:Button ID="Button4" runat="server" Height="27px" Text="delete" Width="82px" OnClick="Button4_Click" />
                 </td>
             </tr>
             <tr>
